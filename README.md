@@ -346,6 +346,7 @@ Private project - All rights reserved.
 ## 📞 Contact
 
 For production deployment support, reach out to your backend team.
+Prathamesh Chougale : calmeflea69@gmail.com
 
 ---
 
