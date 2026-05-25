@@ -98,30 +98,10 @@ export async function saveDiagnosis(payload) {
   }
 }
 
-export async function getNearbyLocations(latitude, longitude, type = 'fertilizer_store', radius = 5000) {
-  try {
-    const { data } = await client.get('/nearby', {
-      params: { latitude, longitude, type, radius },
-    });
-    return data;
-  } catch {
-    await wait(600);
-    return [
-      { id: '1', name: 'Green Leaf Agro', type, distance: '2.4', rating: 4.9, address: 'Pune, MH', openNow: true },
-      { id: '2', name: 'Farm Solutions', type, distance: '4.1', rating: 4.6, address: 'Pune, MH', openNow: true },
-      { id: '3', name: 'Soil Care Center', type, distance: '6.8', rating: 4.7, address: 'Pune, MH', openNow: false },
-    ];
-  }
+export function apiAssetUrl(path) {
+  if (!path) return '';
+  if (path.startsWith('http')) return path;
+  return `${(import.meta.env.VITE_API_URL || 'http://localhost:4000/api').replace('/api', '')}${path}`;
 }
 
-export async function getLocationDetails(placeId) {
-  try {
-    const { data } = await client.get('/place-details', {
-      params: { placeId },
-    });
-    return data;
-  } catch {
-    return null;
-  }
-}
-
+export { client };

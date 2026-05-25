@@ -6,18 +6,13 @@ import { getSchemesAndExperts } from '../services/api';
 
 export function SchemesPage() {
   const [data, setData] = useState(null);
-
-  useEffect(() => {
-    getSchemesAndExperts().then(setData);
-  }, []);
-
+  useEffect(() => { getSchemesAndExperts().then(setData); }, []);
   return (
     <section className="mx-auto max-w-7xl px-4 py-10">
       <div className="mb-8">
         <p className="text-sm font-black uppercase tracking-wide text-leaf-600">Nearby Experts & Government Schemes</p>
         <h1 className="mt-2 text-4xl font-black text-slate-950 dark:text-white">Find help around your farm</h1>
       </div>
-
       <div className="grid gap-6 lg:grid-cols-[1fr_.9fr]">
         <Card>
           <h2 className="mb-4 text-xl font-black dark:text-white">Interactive map UI</h2>
